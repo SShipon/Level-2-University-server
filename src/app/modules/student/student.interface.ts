@@ -25,6 +25,9 @@ export type LocalGuardian = {
 };
 
 export type Student = {
+  studentData: Types.Types.ObjectId;
+  [x: string]: Types.Types.ObjectId;
+  studentData: Types.Types.ObjectId;
   id: string;
   user: Types.ObjectId;
   name: UserName;

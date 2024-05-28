@@ -14,17 +14,6 @@ app.use(cors());
 app.use("/api/v1", router);
 
 
-// //controller function
-// const test = (req: Request, res: Response) => {
-//   const a = 10;
-//   res.send(a);
-// };
-
-// //api route
-// app.get('/', test);
-
-// console.log(process.cwd());
-//D:\nextlevel\module-8.env
 
 //global error handler
 app.use(globalErrorHandler);

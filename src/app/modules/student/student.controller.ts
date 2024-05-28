@@ -58,7 +58,7 @@ const getAllStudents = async (
 };
 
 //3. GET single student by ID
-const getSingleStudent = async (req: Request, res: Response,next:NextFunction) => {
+const getSingleStudent = async (req: Request, res: Response, next:NextFunction) => {
   try {
     const { studentId } = req.params;
     const result = await StudentServices.getSingleStudentFromDB(studentId);

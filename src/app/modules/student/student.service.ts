@@ -22,7 +22,14 @@ const getSingleStudentFromDB = async (id: string) => {
 //delete student 
 // const deleteStudentFromDB=
 
+const deleteStudentFromDB = async (id: string) => {
+  const result = await StudentModel.findByIdAndDelete(id)
+  return result
+}
+
+
 export const StudentServices = {
   getAllStudentsFromDB,
   getSingleStudentFromDB,
+  deleteStudentFromDB
 };

@@ -18,7 +18,7 @@ export const months: Months[] = [
 export const academicSemesterName: AcademicSemesterName[] = [
   'Autumn',
   'Summer',
-  'Fail',
+  'Fall',
 ];
 export const academicSemesterCode: AcademicSemesterCode[] = ['01', '02', '03'];
 

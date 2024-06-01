@@ -13,8 +13,8 @@
   | 'November'
   | 'December';
 
-export type AcademicSemesterName = 'Autumn' | 'Summer' | 'Fail';
-export type AcademicSemesterCode = '01' | '02' | '03';
+export type AcademicSemesterName = 'Autumn' | 'Summer' | 'Fall';
+export type AcademicSemesterCode = '01' | '02' | '03' | '04';
 
 
 export type AcademicSemester = {

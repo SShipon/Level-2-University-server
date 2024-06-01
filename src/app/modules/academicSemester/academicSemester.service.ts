@@ -23,7 +23,7 @@ const createAcademicSemesterIntoDB = async (payload: AcademicSemester) => {
 };
 
 
-//2. get Allsemester
+//2. get all semester  
 const getAllAcademicSemesterFromDB = async () => {
   const result = await AcademicSemesterModel.find();
   return result;

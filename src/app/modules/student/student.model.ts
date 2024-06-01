@@ -1,5 +1,4 @@
 import { Schema, model } from 'mongoose';
-import validator from 'validator';
 import {
   Guardian,
   LocalGuardian,
@@ -81,7 +80,7 @@ const studentSchema = new Schema<Student>({
     },
     required: [true, 'Gender is required'],
   },
-  dateOfBirth: { type: String },
+  dateOfBirth: { type: Date },
   email: { type: String, required: [true, 'Email is required'], unique: true },
   contactNo: { type: String, required: [true, 'Contact number is required'] },
   emergencyContactNo: {
@@ -109,6 +108,10 @@ const studentSchema = new Schema<Student>({
     required: [true, 'Local guardian information is required'],
   },
   profileImg: { type: String },
+  admissionSemester: {
+    type: Schema.Types.ObjectId,
+     ref:'AcademicSemester',
+  },
   isDeleted: {
     type: Boolean,
     default: false,

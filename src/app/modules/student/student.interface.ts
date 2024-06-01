@@ -1,6 +1,9 @@
 // 1. Create an interface representing a document in MongoDB.
 
-import  Types  from "mongoose";
+import { Types } from "mongoose";
+
+
+
 
 export type Guardian = {
   fatherName: string;
@@ -25,22 +28,20 @@ export type LocalGuardian = {
 };
 
 export type Student = {
-  studentData: Types.Types.ObjectId;
-  [x: string]: Types.Types.ObjectId;
-  studentData: Types.Types.ObjectId;
   id: string;
   user: Types.ObjectId;
   name: UserName;
-  gender: "male" | "female" | "other";
-  dateOfBirth: string;
+  gender: 'male' | 'female' | 'other';
+  dateOfBirth?: Date;
   email: string;
   contactNo: string;
   emergencyContactNo: string;
-  bloodGroup?: "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "o+" | "o-";
+  bloodGroup?: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'o+' | 'o-';
   presentAddress: string;
   permanentAddress: string;
   guardian: Guardian;
   localGuardian: LocalGuardian;
   profileImg?: string;
+  admissionSemester: Types.ObjectId;
   isDeleted: Boolean;
 };

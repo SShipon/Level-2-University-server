@@ -1,5 +1,6 @@
 import config from '../../config';
 import { AcademicSemester } from '../academicSemester/academicSemester.interface';
+import { AcademicSemesterModel } from '../academicSemester/academicSemester.model';
 import { Student } from '../student/student.interface';
 import { StudentModel } from '../student/student.model';
 import { TUser } from './user.interface';
@@ -17,10 +18,14 @@ const createStudentIntoDB = async (password: string, studentData: Student) => {
 
 
   // generated id
-
-
   
+  const generateStudentId = (payload:AcademicSemester )=>{
 
+  }
+
+  const  admissionSemester = await AcademicSemester
+  
+  userData.id = generateStudentId()
   //create a user
   const newUser = await UserModel.create(userData);
 

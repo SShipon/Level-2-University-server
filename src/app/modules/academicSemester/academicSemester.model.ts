@@ -4,9 +4,9 @@ import {
   academicSemesterName,
   months,
 } from './academicSemester.constant';
-import { AcademicSemester } from './academicSemester.interface';
+import { TAcademicSemester } from './academicSemester.interface';
 
-const academicSemesterSchema = new Schema<AcademicSemester>(
+const academicSemesterSchema = new Schema<TAcademicSemester>(
   {
     name: {
       type: String,
@@ -40,17 +40,30 @@ const academicSemesterSchema = new Schema<AcademicSemester>(
 
 // With this setup, Mongoose will enforce the condition that only two fall semesters can be created in the year 2030. If you attempt to save a third fall semester for that year, Mongoose will throw an error.
 
-academicSemesterSchema.pre('save', async function (next) {
-  const isSemesterExists = await AcademicSemesterModel.findOne({
-    //this er user Mudde data pabo
-    year: this.year,
-    name: this.name,
-  });
-  if (isSemesterExists) {
-    throw new Error('Semester is already Exists sorry for that !!!');
+// academicSemesterSchema.pre('save', async function (next) {
+//   const isSemesterExists = await AcademicSemesterModel.findOne({
+//     //this er user Mudde data pabo
+//     year: this.year,
+//     name: this.name,
+//   });
+//   if (isSemesterExists) {
+//     throw new Error('Semester is already Exists sorry for that !!!');
+//   }
+//   next();
+// });
+
+
+
+academicSemesterSchema.pre('save', async function (next){
+  const isSemesterExists  = await AcademicSemesterModel.findOne({
+    year:this.year,
+    name:this.name
+  })
+  if(isSemesterExists){
+    throw new Error("Academic semester is already exists sorry for that !!! ")
   }
-  next();
-});
+  next()
+})
 
 
 
@@ -77,7 +90,7 @@ academicSemesterSchema.pre('save', async function (next) {
 
 
 // 3. Create a Model.
-export const AcademicSemesterModel = model<AcademicSemester>(
+export const AcademicSemesterModel = model<TAcademicSemester>(
   'AcademicSemester',
   academicSemesterSchema
 );

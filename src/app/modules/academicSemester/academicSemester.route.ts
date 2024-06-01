@@ -12,6 +12,16 @@ router.post(
   ),
   AcademicSemesterControllers.createAcademicSemester
 );
+
+
+router.patch(
+  '/:semesterId',
+  validateRequest(
+    AcademicSemesterValidations.updateAcademicSemesterValidationSchema
+  ),
+  AcademicSemesterControllers.updateAcademicSemester
+);
+
 //2.getAll semester
 router.get(
   '/',

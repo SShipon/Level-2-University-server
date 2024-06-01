@@ -17,7 +17,7 @@ export type AcademicSemesterName = 'Autumn' | 'Summer' | 'Fall';
 export type AcademicSemesterCode = '01' | '02' | '03' | '04';
 
 
-export type AcademicSemester = {
+export type TAcademicSemester = {
   name: AcademicSemesterName;
   code: AcademicSemesterCode;
   year: string;

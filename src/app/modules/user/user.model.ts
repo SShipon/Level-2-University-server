@@ -1,14 +1,13 @@
-import { model, Schema } from 'mongoose';
-import { TUser } from './user.interface';
 import bcrypt from 'bcrypt';
+import { Schema, model } from 'mongoose';
 import config from '../../config';
-
-
+import { TUser } from './user.interface';
 const userSchema = new Schema<TUser>(
   {
     id: {
       type: String,
       required: true,
+      unique: true,
     },
     password: {
       type: String,
@@ -27,32 +26,31 @@ const userSchema = new Schema<TUser>(
       enum: ['in-progress', 'blocked'],
       default: 'in-progress',
     },
-    isDelete: {
+    isDeleted: {
       type: Boolean,
       default: false,
     },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
-//password hashing 
-//pre save middleware/ hook
 userSchema.pre('save', async function (next) {
-  //hash pass and save into db
-  const user = this;
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
+  const user = this; // doc
+  // hashing password and save into DB
   user.password = await bcrypt.hash(
     user.password,
-    Number(config.bcrypt_salt_rounds)
+    Number(config.bcrypt_salt_rounds),
   );
   next();
 });
 
-//post and save middleware(set ' ' after saving password)
-userSchema.post('save', async function (doc, next) {
+// set '' after saving password
+userSchema.post('save', function (doc, next) {
   doc.password = '';
-  next()
-})
+  next();
+});
 
-export const UserModel = model<TUser>('User', userSchema);
+export const User = model<TUser>('User', userSchema);

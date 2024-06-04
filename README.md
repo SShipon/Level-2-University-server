@@ -8,11 +8,11 @@ This project is a backend application built using Node.js, Express, and TypeScri
 - JavaScript
 - TypeScript
 - Express.js
+- mongoose
 - MongoDB
 - Cors
 - Dotenv
 - zod
 - Postman
-- oi
-- mongoose
+- Joi
 - bcrypt

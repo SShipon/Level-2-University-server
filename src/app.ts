@@ -16,7 +16,10 @@ app.use(cors());
 
 // application routes
 app.use('/api/v1', router);
-
+ //get routes server running check
+app.get('/', (req: Request, res: Response) => {
+  res.send('<h2 style="color:#6A0987 ;text-align:center; margin:15% auto; font-size:48px; font-weight: 900;">✔️University Server Running 🔥😃</h2>')
+})
 const test = async (req: Request, res: Response) => {
   const a = 10;
   res.send(a);

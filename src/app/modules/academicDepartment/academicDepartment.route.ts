@@ -10,7 +10,7 @@ router.post(
   // validateRequest(
   //   AcademicDepartmentValidation.createAcademicDepartmentValidationSchema,
   // ),
-  AcademicDepartmentControllers.createAcademicDepartmemt,
+  AcademicDepartmentControllers.createAcademicDepartment,
 );
 
 router.get(
@@ -23,7 +23,7 @@ router.patch(
   validateRequest(
     AcademicDepartmentValidation.updateAcademicDepartmentValidationSchema,
   ),
-  AcademicDepartmentControllers.updateAcademicDeartment,
+  AcademicDepartmentControllers.updateAcademicDepartment,
 );
 
 router.get('/', AcademicDepartmentControllers.getAllAcademicDepartments);

@@ -6,3 +6,12 @@ export type TUser = {
   status: 'in-progress' | 'blocked';
   isDeleted: boolean;
 };
+
+
+
+
+export type  TPerson = {
+  name: string;
+  age: number;
+  email?: string; // Optional property
+}

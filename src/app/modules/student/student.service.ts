@@ -148,16 +148,7 @@ const updateStudentIntoDB = async (id: string, payload: Partial<TStudent>) => {
     ...remainingStudentData,
   };
 
-  /*
-    guardain: {
-      fatherOccupation:"Teacher"
-    }
-
-    guardian.fatherOccupation = Teacher
-
-    name.firstName = 'Mezba'
-    name.lastName = 'Abedin'
-  */
+  
 
   if (name && Object.keys(name).length) {
     for (const [key, value] of Object.entries(name)) {
